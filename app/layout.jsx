@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import "@styles/globals.css";
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
