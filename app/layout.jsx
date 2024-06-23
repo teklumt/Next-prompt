@@ -12,12 +12,6 @@ export const metadata = {
 const Rootlayout = ({ children }) => {
   return (
     <html lang="en">
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta property="og:image" content={metadata.image} />
-        <link rel="icon" href={metadata.image} />
-      </Head>
       <body>
         <Provider>
           <div className="main">
