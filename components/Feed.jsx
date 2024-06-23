@@ -1,5 +1,4 @@
 "use client";
-export const dynamic = "force-dynamic";
 
 import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
@@ -26,21 +25,15 @@ const Feed = () => {
   const handleSearchChange = (e, taged = false) => {
     if (taged) {
       setSearchText(e);
-      setFilteredPosts(
-        posts?.filter((post) => {
-          return post.tag.includes(e);
-        })
-      );
+      setFilteredPosts(posts?.filter((post) => post.tag.includes(e)));
     } else {
       setSearchText(e.target.value);
-
       setFilteredPosts(
-        posts.filter((post) => {
-          return post?.prompt.includes(e.target.value);
-        })
+        posts.filter((post) => post?.prompt.includes(e.target.value))
       );
     }
   };
+
   const handleTagClick = (tag) => {
     handleSearchChange(tag, true);
   };
@@ -57,7 +50,7 @@ const Feed = () => {
 
   return (
     <section className="feed">
-      <form className="relative w-full flex-center ">
+      <form className="relative w-full flex-center">
         <input
           type="text"
           placeholder="search for a tag or a username"
