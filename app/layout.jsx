@@ -1,4 +1,5 @@
-import Head from "next/head";
+// import Head from "next/head";
+export const dynamic = "force-dynamic";
 import "@styles/globals.css";
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
