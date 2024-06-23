@@ -13,12 +13,11 @@ export const GET = async (request, { params }) => {
 
     return new Response(JSON.stringify(prompt), { status: 200 });
   } catch (error) {
-    return new Response("Failed to fetch all prompts", { status: 500 });
+    return new Response("Failed to fetch the prompt", { status: 500 });
   }
 };
 
-// patch
-
+// Patch
 export const PATCH = async (request, { params }) => {
   const { prompt, tag } = await request.json();
   try {
@@ -39,7 +38,6 @@ export const PATCH = async (request, { params }) => {
 };
 
 // Delete
-
 export const DELETE = async (request, { params }) => {
   try {
     await connectToDB();

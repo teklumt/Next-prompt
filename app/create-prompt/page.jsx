@@ -1,5 +1,6 @@
 "use client";
 export const dynamic = "force-dynamic";
+
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -14,26 +15,26 @@ const CreatePrompt = () => {
     prompt: "",
     tag: "",
   });
+
   const createPost = async (e) => {
     e.preventDefault();
     setSubmitting(true);
+
     try {
-      const res = await fetch("/api/prompt/new", {
+      const response = await fetch("/api/prompt/new", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({
           prompt: post.prompt,
-          userId: session.user.id,
           tag: post.tag,
+          userId: session.user.id,
         }),
       });
-      if (res.ok) {
+
+      if (response.ok) {
         router.push("/");
       }
     } catch (error) {
-      console.error("Failed to create post", error);
+      console.log(error);
     } finally {
       setSubmitting(false);
     }
@@ -41,7 +42,7 @@ const CreatePrompt = () => {
 
   return (
     <Form
-      type="create"
+      type="Create"
       post={post}
       setPost={setPost}
       submitting={submitting}
