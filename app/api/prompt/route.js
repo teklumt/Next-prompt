@@ -6,6 +6,7 @@ export const GET = async (request) => {
     await connectToDB();
 
     const prompts = await Prompt.find({}).populate("creator");
+    console.log("Fetched Prompts:", prompts); // Add this line to log fetched prompts
 
     return new Response(JSON.stringify(prompts), {
       status: 200,
@@ -18,6 +19,7 @@ export const GET = async (request) => {
       },
     });
   } catch (error) {
+    console.error("Error fetching prompts:", error);
     return new Response("Failed to fetch all prompts", { status: 500 });
   }
 };
